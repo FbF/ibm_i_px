@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig" xmlns:intf="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="verifyWithExceptionRequest">
+
+      <wsdl:part name="message" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="signature" type="soapenc:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verifyResponse">
+
+      <wsdl:part name="verifyReturn" type="xsd:boolean">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verifyRequest">
+
+      <wsdl:part name="message" type="soapenc:string">
+
+      </wsdl:part>
+
+      <wsdl:part name="signature" type="soapenc:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="verifyWithExceptionResponse">
+
+      <wsdl:part name="verifyWithExceptionReturn" type="soapenc:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="IBMDSig">
+
+      <wsdl:operation name="verify" parameterOrder="message signature">
+
+         <wsdl:input message="impl:verifyRequest" name="verifyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:verifyResponse" name="verifyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="verifyWithException" parameterOrder="message signature">
+
+         <wsdl:input message="impl:verifyWithExceptionRequest" name="verifyWithExceptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:verifyWithExceptionResponse" name="verifyWithExceptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="IBMDSigSoapBinding" type="impl:IBMDSig">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="verify">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="verifyRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.passwordVendorValidate" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="verifyResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="verifyWithException">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="verifyWithExceptionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://service.passwordVendorValidate" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="verifyWithExceptionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="IBMDSigService">
+
+      <wsdl:port binding="impl:IBMDSigSoapBinding" name="IBMDSig">
+
+         <wsdlsoap:address location="https://www-03.ibm.com/ibm/password/vendor/validate/services/IBMDSig"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
